@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from os         import fork
+from os         import name     as currentOS
 from os         import setsid
+from os         import system
 from random     import randint
 from subprocess import call
 from sys        import exit
@@ -21,7 +23,10 @@ if __name__ == "__main__":
             while True:
                 rand = randint(MINUTE)
                 sleep(rand)
-                call(["xterm","-b","5000","vim"])
+                if currentOS == 'nt':
+                    system("start %windir%\explorer.exe")
+                else:
+                    call(["xterm","-b","5000","vim"])
         else:
             exit(0)
     else:
