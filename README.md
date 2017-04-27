@@ -1,4 +1,4 @@
-# Boring_Programm
+# Annoying deamon
 ***Small annoying but harmless deamon in python***
 
 ## How to run it?
