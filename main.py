@@ -25,7 +25,7 @@ if __name__ == "__main__":
                 if currentOS == 'nt':
                     system("start %windir%\explorer.exe")
                 else:
-                    call(["xterm","-b","5000","vim"])
+                    call(["xterm","vim"])
         else:
             exit(0)
     else:
