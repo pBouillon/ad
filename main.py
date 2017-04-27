@@ -19,7 +19,7 @@ if __name__ == "__main__":
         pid = fork()
         if pid==0:
             while True:
-                rand = randint(HALF)
+                rand = randint(0,HALF)
                 sleep(rand)
                 call(["xterm","-b","5000","vim"])
         else:
