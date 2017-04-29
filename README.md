@@ -20,3 +20,6 @@ or
 ## What will happen?
 The script will run without any interface for the 'victim' (or yourself) and every x seconds (random, up to 30mn) a window will appear on the desktop
 For windows it will be the file explorer and for linux it will be a xterm terminal displaying Vim
+
+On linux, the script will erase itself while runing in background
+On Windows, the script will display file explorer 15 times before erasing himself
