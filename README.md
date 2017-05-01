@@ -1,9 +1,9 @@
-# Annoying deamon
-***Small annoying but harmless deamon in python***
-
 # DISCLAIMER
 This script is for educational purpose only, it was made to test concepts, try it in a funny way. I don't have any bad intentions such as harm someone or his work/private life/etc.
 This is more made as a pun to practice than a 'virus' (a poor one anyway)
+
+# Annoying deamon
+***Small annoying but harmless deamon in python***
 
 ## How to run it?
 ### Windows
