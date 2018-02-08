@@ -29,6 +29,6 @@ if __name__ == "__main__":
         if pid == 0:
             while True:
                 sleep(randint(0,MAX_LATENCY))
-                call(["eject","-t"])
+                call(["eject","-T"])
     else:
         self_destruction() # Destroy sources
