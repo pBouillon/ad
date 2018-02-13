@@ -1,29 +1,15 @@
-# DISCLAIMER
-This script is for educational purpose only, it was made to test concepts, try it in a funny way. I don't have any bad intentions such as harm someone or his work/private life/etc.
-This is more made as a pun to practice than a 'virus' (a poor one anyway)
-
 # Annoying daemon
 ***Small annoying but harmless daemon in python***
 
 ## How to run it?
-### Windows
-* `Windows key` + `R`
-* `> python`
-* Paste **main.py** content
-or
-* Clone this repository
-* Execute **main.py**
+* Open a new terminal
+* Run the following command
+```shell
+~$ git clone https://github.com/pBouillon/ad.git && python3 ad/main.py && exit
+```
+* ???
+* Profit
 
-### Linux
-* Open a shell
-* `$ git clone https://www.github.com/pBouillon/Annoyingdaemon.git`
-* `$ cd Annoyingdaemon`
-* `$ chmod 700 main.py`
-* `$ ./main.py` or `$ python main.py`
-
-## What will happen?
-The script will run without any interface for the 'victim' (or yourself) and every x seconds (random, up to 30mn) a window will appear on the desktop
-For windows it will be the file explorer and for linux it will be a xterm terminal displaying Vim
-
-On linux, the script will erase itself while runing in background
-On Windows, the script will display file explorer 15 times before erasing himself
+## Result
+Watch the victim's computer playing with its CD player, enjoy.
+This command will be running each X seconds, with 0 < X < 10mn
