@@ -15,8 +15,8 @@ import time
 from time       import sleep
 
 
-""" Max latency: 5 mn """
-MAX_LATENCY = 60 * 5
+""" Max latency: 10 mn """
+MAX_LATENCY = 60 * 10
 
 def self_destruction():
     call(["rm","-rf", p.dirname(p.abspath(__file__))])
