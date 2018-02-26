@@ -20,8 +20,8 @@ from time       import sleep
 
 """ action to be performed """
 ACTION = ['eject', '-T']
-""" max latency: 10 mn """
-MAX_LATENCY = 60 * 10
+""" max latency: 5 mn """
+MAX_LATENCY = 60 * 5
 
 
 def self_destruction():
